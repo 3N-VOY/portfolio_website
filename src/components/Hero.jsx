@@ -29,14 +29,14 @@ const Hero = () => {
         </p>
 
         <h1 className="rise rise-2 font-display font-medium text-4xl md:text-6xl lg:text-7xl text-bone leading-[1.05] tracking-tight max-w-4xl mb-8 text-balance">
-          Building AI systems that perform in the{" "}
-          <span className="text-brass-bright">real world.</span>
+          Building technology that works in practice,{" "}
+          <span className="text-brass-bright">not just in theory.</span>
         </h1>
 
         <p className="rise rise-3 text-lg md:text-xl text-fog leading-relaxed max-w-2xl mb-12">
           From enterprise platforms at OTE Group (Deutsche Telekom) to
-          healthcare AI research and startup products, I turn machine learning
-          into reliable, working systems.
+          healthcare AI research and startup products: turning machine
+          learning into reliable, working systems.
         </p>
 
         <div className="rise rise-4 flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-20">

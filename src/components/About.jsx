@@ -24,24 +24,24 @@ const About = () => {
 
             <div className="space-y-6 text-fog leading-relaxed text-lg">
               <p>
-                I'm an AI engineer with a foundation in Computer Science (BSc,
-                First Class Honours, University of Derby) and a business
-                perspective shaped by an MSc in International Business and
-                Management at ALBA Graduate Business School.
+                AI engineer with a foundation in Computer Science (BSc, First
+                Class Honours, University of Derby) and a business perspective
+                shaped by an MSc in International Business and Management at
+                ALBA Graduate Business School.
               </p>
               <p>
-                At OTE Group, part of Deutsche Telekom, I work on AI and
-                software deployment pipelines: CI/CD workflows, system
+                At OTE Group, part of Deutsche Telekom: working on AI and
+                software deployment pipelines, CI/CD workflows, system
                 integrations and UAT, keeping enterprise systems that handle
                 thousands of daily transactions reliable and efficient.
               </p>
               <p>
-                Beyond the day job, I explore the social dimension of AI:
-                medical imaging for pneumonia detection, diabetes prediction,
-                and an AI fitness trainer selected by the ACEin accelerator of
-                the Athens University of Economics and Business. I also take
-                on selected consulting projects and MVP builds for companies
-                that want to put AI and software to work.
+                Exploring the social dimension of AI: medical imaging for
+                pneumonia detection, diabetes prediction, and an AI fitness
+                trainer selected by the ACEin accelerator of the Athens
+                University of Economics and Business. Plus selected consulting
+                projects and MVP builds for companies that want to put AI and
+                software to work.
               </p>
             </div>
           </div>
