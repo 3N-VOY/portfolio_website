@@ -3,11 +3,30 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      colors: {
+        night: {
+          DEFAULT: '#0B0B0E',
+          raised: '#111115',
+        },
+        bone: '#ECECEE',
+        fog: '#A3A3AC',
+        faint: '#6E6E76',
+        brass: {
+          DEFAULT: '#C9A26B',
+          bright: '#DDB87E',
+        },
+        line: 'rgba(255,255,255,0.09)',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        display: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['IBM Plex Mono', 'ui-monospace', 'monospace'],
+      },
+      letterSpacing: {
+        label: '0.14em',
+      },
+      maxWidth: {
+        site: '72rem',
       },
     },
   },

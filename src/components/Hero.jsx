@@ -1,88 +1,73 @@
-import React, { useEffect, useRef } from "react";
-import { ArrowDown } from "lucide-react";
+import React from "react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
+
+const credentials = [
+  "OTE Group · Deutsche Telekom",
+  "BSc First Class Honours · Derby",
+  "MSc IB&M · ALBA",
+  "ACEin Accelerator · AUEB",
+];
 
 const Hero = () => {
-  const heroRef = useRef(null);
-
-  const scrollToNextSection = () => {
-    const aboutSection = document.getElementById("about");
-    if (aboutSection) {
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
       window.scrollTo({
-        top: aboutSection.offsetTop - 80,
+        top: section.offsetTop - 72,
         behavior: "smooth",
       });
     }
   };
 
-  // Reveal animation on load
-  useEffect(() => {
-    const heroElement = heroRef.current;
-    if (heroElement) {
-      heroElement.classList.add("opacity-100", "translate-y-0");
-    }
-  }, []);
-
   return (
-    <section
-      id="hero"
-      ref={heroRef}
-      className="min-h-screen flex items-center justify-center relative transition-all duration-1000 opacity-0 translate-y-4"
-    >
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-text bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-500 bg-clip-text text-transparent">
-            Hi, I'm Alexander Xagoraris
-            <br />
-            <span className="font-normal">
-              Software Engineer & AI Enthusiast
-            </span>
-          </h1>
+    <section id="hero" className="min-h-dvh flex flex-col justify-center relative">
+      <div className="absolute inset-0 dot-grid" aria-hidden="true"></div>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Transforming Ideas into Powerful Digital Experiences.
-          </p>
+      <div className="relative mx-auto w-full max-w-site px-6 md:px-10 pt-24">
+        <p className="rise rise-1 font-mono text-xs uppercase tracking-label text-brass mb-8">
+          AI / Platform Engineer · Athens, Greece
+        </p>
 
-          <div className="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a
-              href="mailto:xagorarisalexander@gmail.com"
-              download
-              className="px-8 py-3 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium transition transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2"
-            >
-              Contact Me
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-            </a>
+        <h1 className="rise rise-2 font-display font-medium text-4xl md:text-6xl lg:text-7xl text-bone leading-[1.05] tracking-tight max-w-4xl mb-8 text-balance">
+          Building AI systems that perform in the{" "}
+          <span className="text-brass-bright">real world.</span>
+        </h1>
 
-            <button
-              onClick={scrollToNextSection}
-              className="px-8 py-3 rounded-full border border-gray-400 text-gray-300 font-medium transition transform hover:scale-105 hover:border-white hover:text-white flex items-center justify-center gap-2"
-            >
-              Explore
-              <ArrowDown size={18} />
-            </button>
-          </div>
+        <p className="rise rise-3 text-lg md:text-xl text-fog leading-relaxed max-w-2xl mb-12">
+          From enterprise platforms at OTE Group (Deutsche Telekom) to
+          healthcare AI research and startup products, I turn machine learning
+          into reliable, working systems.
+        </p>
+
+        <div className="rise rise-4 flex flex-col sm:flex-row items-start sm:items-center gap-6 mb-20">
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="inline-flex items-center gap-2 px-7 py-3 bg-brass text-night font-medium text-sm hover:bg-brass-bright hover:-translate-y-0.5 transition-all"
+          >
+            Get in touch
+            <ArrowUpRight size={16} />
+          </button>
+          <button
+            onClick={() => scrollToSection("work")}
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-label text-fog hover:text-bone transition-colors"
+          >
+            Selected work
+            <ArrowDown size={14} />
+          </button>
         </div>
       </div>
 
-      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <button
-          onClick={scrollToNextSection}
-          className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-500 text-gray-400 hover:text-white hover:border-white transition-colors"
-        >
-          <ArrowDown size={20} />
-        </button>
+      <div className="relative mx-auto w-full max-w-site px-6 md:px-10 pb-12">
+        <div className="rise rise-4 border-t border-line pt-6 flex flex-wrap gap-x-10 gap-y-3">
+          {credentials.map((item) => (
+            <span
+              key={item}
+              className="font-mono text-[11px] uppercase tracking-label text-faint"
+            >
+              {item}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

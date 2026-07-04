@@ -10,10 +10,33 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
-  font-family: 'Inter', sans-serif;
-  color: #fff;
-  background-color: #000;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #ececee;
+  background-color: #0b0b0e;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #c9a26b;
+  color: #0b0b0e;
+}
+
+:focus-visible {
+  outline: 2px solid #c9a26b;
+  outline-offset: 2px;
 }
 
 ::-webkit-scrollbar {
@@ -21,38 +44,68 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2);
+  background: #0b0b0e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(59, 130, 246, 0.5);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(59, 130, 246, 0.7);
-}
-
-/* Gradient text animation */
-.animate-text {
-  background-size: 200% 200%;
-  animation: gradientText 5s ease infinite;
-}
-
-@keyframes gradientText {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(0, 0, 0, 0.2);
+  scrollbar-color: rgba(255, 255, 255, 0.15) #0b0b0e;
+}
+
+/* Staggered entrance for the hero */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  opacity: 0;
+  animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.rise-1 {
+  animation-delay: 0.05s;
+}
+.rise-2 {
+  animation-delay: 0.15s;
+}
+.rise-3 {
+  animation-delay: 0.28s;
+}
+.rise-4 {
+  animation-delay: 0.42s;
+}
+
+/* Quiet atmosphere: faint dot grid and a soft warm glow */
+.dot-grid {
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
+/* Warm ambient fade entering from the right edge of the page */
+.ambient-right {
+  background: radial-gradient(
+    1100px 780px at 100% 30%,
+    rgba(224, 122, 60, 0.1),
+    transparent 65%
+  );
 }

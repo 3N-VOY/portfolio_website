@@ -1,66 +1,52 @@
-import neuropdfImg from "../assets/neuropdf.png";
-import diabetesImg from "../assets/diabetespredict_ai.png";
-import optimaliftsimg from "../assets/optimaliftsfitnessai.png";
-
 export const projectsData = [
   {
-    title: "NeuroPDF - Intelligent Document Processing",
+    title: "NeuroPDF",
+    tagline: "AI document intelligence",
     description:
-      "An AI-powered PDF processing tool that uses machine learning to extract, analyze and process information from PDFs. Features include automatic text extraction, document classification, and content summarization.",
-    technologies: ["Python", "TensorFlow", "NLP", "FastAPI", "React"],
-    image: neuropdfImg,
-    githubLink: "https://github.com/3N-VOY/aipdf",
-    // demoLink: "https://aipdf-demo.example.com"
+      "Full-stack web application for asking questions about any PDF. Built on Retrieval-Augmented Generation with vector search and LLMs for accurate, context-aware answers from documents.",
+    technologies: ["Python", "LLMs / RAG", "Vector DB", "FastAPI", "React"],
+    githubLink: "https://github.com/3N-VOY/neuropdfv2",
   },
   {
-    title:
-      "AI Personal Fitness Trainer MVP - OptimaLifts Startup Program ACEin (AUEB)",
+    title: "OptimaLifts AI Fitness Trainer",
+    tagline: "Computer vision · ACEin accelerator (AUEB)",
     description:
-      "Optimallifts’ AI Fitness Trainer is a web application that uses computer‐vision and machine learning to give real-time feedback on exercise form. Users point their webcam at themselves, perform movements (squats, curls, push-ups), and the system instantly scores form accuracy via a trained neural network. Contributed across backend, AI integration, and deployment. The project was accepted into the ACEin business accelerator program at the Athens University of Economics and Business (AUEB).",
-    image: optimaliftsimg,
-    technologies: ["Mediapipe", "Python", "OpenCV", "TensorFlow", " Django"],
+      "Real-time exercise-form feedback through the webcam: a trained neural network scores squats, curls and push-ups as you move. Contributed across backend, AI integration and deployment. Accepted into the ACEin business accelerator at the Athens University of Economics and Business.",
+    technologies: ["MediaPipe", "OpenCV", "TensorFlow", "Django", "Python"],
     githubLink: "https://github.com/3N-VOY/aifitness",
   },
   {
-    title: "Diabetes AI Prediction Model",
+    title: "Pneumonia Detection from Chest X-Rays",
+    tagline: "Deep learning for healthcare",
     description:
-      "Machine learning model for early diabetes detection and risk assessment based on patient data. Implemented various ML algorithms and compared their performance to find the most accurate prediction model.",
-    technologies: ["Python", "Scikit-learn", "Pandas", "TensorFlow", "Flask"],
-    image: diabetesImg,
-    githubLink: "https://github.com/3N-VOY/diabetes_ai",
-    // demoLink: "https://diabetes-ai.example.com"
+      "CNNs and transfer learning (ResNet50) to detect pneumonia from chest X-ray images, with occlusion sensitivity and heatmaps for explainability and clinical relevance.",
+    technologies: ["CNNs", "ResNet50", "Transfer Learning", "Explainable AI"],
+    githubLink: "https://github.com/3N-VOY/pneumonia_prediction",
   },
   {
-    title: "Airline Management SkyWing",
+    title: "Diabetes Prediction Models",
+    tagline: "Machine learning on clinical data",
     description:
-      "A comprehensive airline management system with modules for flight scheduling, booking management, crew assignments, and analytics dashboards. Built with scalability and performance in mind.",
-    technologies: ["Java", "Spring Boot", "PostgreSQL", "Docker", "React"],
-    image:
-      "https://images.pexels.com/photos/62623/wing-plane-flying-airplane-62623.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      "Machine learning models predicting diabetes from clinical measurements: data cleaning, exploratory analysis and comparative model evaluation.",
+    technologies: ["Scikit-learn", "Pandas", "TensorFlow", "Python"],
+    githubLink: "https://github.com/3N-VOY/diabetes_ai",
+  },
+];
+
+export const moreProjectsData = [
+  {
+    title: "SkyWing Airline Management",
+    description: "Flight scheduling, bookings and crew assignment system.",
     githubLink: "https://github.com/3N-VOY/airline_management_skywing",
   },
   {
     title: "Network Chat Application",
-    description:
-      "Secure, real-time messaging application with customed developed end-to-end encryption. Features include message persistence, read receipts, and typing indicators.",
-    technologies: ["JavaScript", "Node.js", "Socket.io", "MongoDB", "React"],
-    image:
-      "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "Real-time messaging with custom end-to-end encryption.",
     githubLink: "https://github.com/3N-VOY/network_chatapp",
   },
   {
     title: "Local AI Voice Assistant",
-    description:
-      "The AI Voice Assistant is a Python-based project that enables voice-controlled interactions with an AI assistant. The assistant can transcribe audio files to text, generate text-based responses, and convert the generated text into speech.",
-    technologies: [
-      "Python",
-      "Machine Learning",
-      "LLMs",
-      "HuggingFace",
-      "TexttoSpeech",
-    ],
-    image:
-      "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    description: "Voice-controlled assistant: transcription, LLM responses, speech synthesis.",
     githubLink: "https://github.com/3N-VOY/local_ai_voice_assistant",
   },
 ];

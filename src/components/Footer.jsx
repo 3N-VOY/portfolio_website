@@ -4,20 +4,15 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative z-20 py-8 bg-gray-900/95 backdrop-blur-md border-t border-gray-800">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-4 md:mb-0">
-            <p className="text-gray-400 text-sm">
-              &copy; {currentYear} Alexander Xagoraris. All rights reserved.
-            </p>
-          </div>
-
-          <div>
-            <p className="text-gray-500 text-xs">
-              Built with React & Tailwind CSS
-            </p>
-          </div>
+    <footer className="py-10 border-t border-line">
+      <div className="mx-auto max-w-site px-6 md:px-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <p className="font-mono text-[11px] uppercase tracking-label text-faint">
+            &copy; {currentYear} Alexander Xagoraris
+          </p>
+          <p className="font-mono text-[11px] uppercase tracking-label text-faint">
+            Athens, Greece
+          </p>
         </div>
       </div>
     </footer>

@@ -1,32 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
+const navItems = [
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'work', label: 'Work' },
+  { id: 'writing', label: 'Writing' },
+  { id: 'contact', label: 'Contact' },
+];
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [scrolled]);
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     if (section) {
       window.scrollTo({
-        top: section.offsetTop - 80,
-        behavior: 'smooth'
+        top: section.offsetTop - 72,
+        behavior: 'smooth',
       });
       setIsOpen(false);
     }
@@ -34,50 +32,59 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-gray-900/90 backdrop-blur-md py-2 shadow-lg' : 'bg-transparent py-4'
+      className={`fixed w-full z-50 transition-all duration-300 border-b ${
+        scrolled
+          ? 'bg-night/90 backdrop-blur-md border-line'
+          : 'bg-transparent border-transparent'
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex justify-between items-center">
-          <div className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600">
-            Alexander X.
-          </div>
+      <div className="mx-auto max-w-site px-6 md:px-10">
+        <div className="flex justify-between items-center h-16">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="font-display text-lg text-bone tracking-tight"
+          >
+            Alexander Xagoraris
+          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
-            {['hero', 'about', 'skills', 'projects', 'articles', 'contact'].map((item) => (
+          {/* Desktop navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navItems.map((item) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-gray-300 hover:text-white capitalize transition-colors"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="font-mono text-xs uppercase tracking-label text-fog hover:text-bone transition-colors"
               >
-                {item}
+                {item.label}
               </button>
             ))}
           </div>
 
-          {/* Mobile Navigation Button */}
-          <button onClick={toggleMenu} className="md:hidden text-white">
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-bone"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <div
-        className={`md:hidden absolute w-full bg-gray-900 transition-all duration-300 ${
+        className={`md:hidden absolute w-full bg-night border-b border-line transition-all duration-300 ${
           isOpen ? 'max-h-screen py-4 opacity-100' : 'max-h-0 py-0 opacity-0 overflow-hidden'
         }`}
       >
-        <div className="container mx-auto px-4 flex flex-col space-y-4">
-          {['hero', 'about', 'skills', 'projects', 'articles', 'contact'].map((item) => (
+        <div className="px-6 flex flex-col gap-1">
+          {navItems.map((item) => (
             <button
-              key={item}
-              onClick={() => scrollToSection(item)}
-              className="text-gray-300 hover:text-white py-2 capitalize transition-colors"
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className="font-mono text-xs uppercase tracking-label text-fog hover:text-bone py-3 text-left transition-colors"
             >
-              {item}
+              {item.label}
             </button>
           ))}
         </div>
